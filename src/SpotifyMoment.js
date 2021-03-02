@@ -16,6 +16,9 @@ class SpotifyMoment {
 
   isAccessGranted = false;
 
+  /** @type {SpotifyApi.CurrentPlaybackResponse} */
+  state = {};
+
   async init() {
     console.log("[MAIN] Initalizing..");
 
@@ -56,10 +59,18 @@ class SpotifyMoment {
     async function refresh() {
       let refreshToken = await self.spotifyApi.refreshAccessToken();
       self.spotifyApi.setAccessToken(refreshToken.body.access_token);
+      console.log("[MAIN] Authorization token updated!");
       await sleep((refreshToken.body.expires_in - 60) * 1000);
       refresh();
     }
     refresh();
+  }
+
+  async updateState() {
+    if (!this.isAccessGranted) return;
+    const state = await this.spotifyApi.getMyCurrentPlaybackState();
+    this.state = state.body;
+    return state;
   }
 
 }
