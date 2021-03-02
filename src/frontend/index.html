@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Moment Styles</title>
+</head>
+
+<body>
+  <div id="container">
+    <div id="header">
+      <h1 id="title">
+        Styles
+      </h1>
+    </div>
+    <div id="content">
+      <div id="styles">
+        <div class="style">
+          <h3 class="style-title">Default</h3>
+          <p class="style-description">
+            The default theme of the Spotify Moment
+          </p>
+          <div class="style-links">
+            <p>Modes: </p>
+            <a href="/frontend/styles/default">Normal</a>
+            <a href="/frontend/styles/default?doNotHide">Do Not Hide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: rgb(12, 12, 12);
+      color: whitesmoke;
+    }
+
+    #container {
+      max-width: 720px;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0 auto;
+    }
+
+    #header {
+      background-color: rgb(61, 61, 61);
+      width: 100%;
+      padding: 16px 8px;
+      box-shadow:
+        0 1.4px 2.1px rgba(255, 255, 255, 0.02),
+        0 3.3px 5.1px rgba(255, 255, 255, 0.028),
+        0 6.3px 9.5px rgba(255, 255, 255, 0.035),
+        0 11.2px 17px rgba(255, 255, 255, 0.042),
+        0 20.9px 31.8px rgba(255, 255, 255, 0.05),
+        0 50px 76px rgba(255, 255, 255, 0.07);
+    }
+
+    #title {
+      text-align: center;
+      font-size: 64px;
+    }
+
+    #content {
+      margin-top: 64px;
+    }
+
+    .style {
+      color: rgb(221, 221, 221);
+      background-color: rgb(29, 29, 29);
+      border-left: 4px solid rgb(68, 68, 68);
+      padding: 4px 8px;
+    }
+
+    .style-links {
+      margin-top: 8px;
+    }
+
+    .style-links p {
+      opacity: 0.8;
+      display: inline-block;
+    }
+
+    .style-links a {
+      color: rgb(0, 161, 161);
+    }
+
+    .style-links a:hover {
+      color: rgb(0, 223, 223);
+    }
+  </style>
+</body>
+
+</html>
