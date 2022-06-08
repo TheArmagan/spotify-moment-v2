@@ -1,6 +1,6 @@
 module.exports = {
-  "clientId": "e0aac15b38854b9eb7b22eb9f0edf89f",
-  "clientSecret": "c4f4f95a6d4e4cb28e77ea4ac01f2949",
+  "clientId": "f447e990dc714653beacb262691c0d11",
+  "clientSecret": "b65df07275c84c048f1d7e5790c4f861",
   "redirectUri": "http://127.0.0.1:8777/api/auth/callback",
   "scopes": [
     "user-read-currently-playing",
