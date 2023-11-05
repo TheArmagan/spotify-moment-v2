@@ -32,8 +32,6 @@ const app = Vue.createApp({
         this.state = state;
         await this.sleep(300);
         this.cardHidden = false;
-      } else {
-        this.state = state;
       }
 
       this.cardHidden = !(state || {}).is_playing;
