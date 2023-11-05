@@ -15,8 +15,12 @@ const app = Vue.createApp({
       if (!state.ok) return;
       state = state.data;
 
+      this.cardHidden = !(state || {}).is_playing;
+
       if (state.item.id != ((this.state || {}).item || {}).id) {
 
+        this.cardHidden = true;
+        await this.sleep(300);
         if (state.item.id != ((this.state || {}).item || {}).id) {
           const img = new Image();
           img.onload = async () => {
@@ -26,15 +30,12 @@ const app = Vue.createApp({
           img.crossOrigin = "anonymous";
           img.src = state.item.album.images[0].url;
         }
-
-        this.cardHidden = true;
-        await this.sleep(300);
         this.state = state;
         await this.sleep(300);
         this.cardHidden = false;
+      } else {
+        this.state = state;
       }
-
-      this.cardHidden = !(state || {}).is_playing;
     }, 1000)
   },
   methods: {
