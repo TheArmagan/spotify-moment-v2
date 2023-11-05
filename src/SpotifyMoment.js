@@ -68,9 +68,14 @@ class SpotifyMoment {
 
   async updateState() {
     if (!this.isAccessGranted) return;
-    const state = await this.spotifyApi.getMyCurrentPlaybackState();
-    this.state = state.body;
-    return state;
+    try {
+      const state = await this.spotifyApi.getMyCurrentPlaybackState();
+      this.state = state.body;
+      return state;
+    } catch (e) {
+      console.log(e);
+      return this.updateState();
+    }
   }
 
 }
