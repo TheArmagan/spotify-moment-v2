@@ -21,15 +21,15 @@ const app = Vue.createApp({
 
         this.cardHidden = true;
         await this.sleep(300);
-        if (state.item.id != ((this.state || {}).item || {}).id) {
-          const img = new Image();
-          img.onload = async () => {
-            const colors = colorThief.getPalette(img, 2);
-            this.colors = colors.map(c => `rgb(${c[0]}, ${c[1]}, ${c[2]})`);
-          };
-          img.crossOrigin = "anonymous";
-          img.src = state.item.album.images[0].url;
-        }
+
+        const img = new Image();
+        img.onload = async () => {
+          const colors = colorThief.getPalette(img, 2);
+          this.colors = colors.map(c => `rgb(${c[0]}, ${c[1]}, ${c[2]})`);
+        };
+        img.crossOrigin = "anonymous";
+        img.src = state.item.album.images[0].url;
+
         this.state = state;
         await this.sleep(300);
         this.cardHidden = false;
