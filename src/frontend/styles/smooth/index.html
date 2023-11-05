@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Moment</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+
+  <body>
+    <div id="vue-app" class="container">
+      <div
+        class="card"
+        :style="`--bg: ${colors[0]}; --fg: ${colors[1]}`"
+        :class="{'hidden': cardHidden}"
+      >
+        <div class="left">
+          <div
+            class="disc"
+            :style="`--img: url('${(((((state || {}).item || {}).album || {}).images || [])[0] || {}).url}');`"
+          >
+            <div class="mid">
+              <div class="dot"></div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="info-card">
+            <div class="name">{{((state || {}).item || {}).name}}</div>
+            <div class="artists">{{artistNames}}</div>
+          </div>
+          <div class="progress-card">
+            <div class="elapsed">
+              {{formatSeconds((state || {}).progress_ms / 1000)}}
+            </div>
+            <div class="progress-container">
+              <div
+                class="progress"
+                :style="`width: ${percentage((state || {}).progress_ms, ((state || {}).item || {}).duration_ms)}%`"
+              ></div>
+            </div>
+            <div class="duration">
+              {{formatSeconds(((state || {}).item || {}).duration_ms / 1000)}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.7/vue.global.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

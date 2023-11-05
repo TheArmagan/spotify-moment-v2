@@ -65,7 +65,7 @@ class WebManager {
         limit: req.query.limit ?? 20
       });
       return res.send({ ok: true, data: state.body });
-    })
+    });
 
     this.app.patch("/api/playback/volume", isAccessGrantedMiddleware, async (req, res) => {
       if (isNaN(req.body.volume)) return res.send({ ok: false, reason: "Volume should be a number." });
