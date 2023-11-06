@@ -1,0 +1,1 @@
+https://developer.spotify.com/ src/config.js
