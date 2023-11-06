@@ -126,6 +126,7 @@ body {
   height: 0.5rem;
   background-color: var(--fg);
   border-radius: 9999px;
+  transition: width 300ms linear;
 }
 .container > .card > .right .progress-card .elapsed,
 .container > .card > .right .progress-card .duration {

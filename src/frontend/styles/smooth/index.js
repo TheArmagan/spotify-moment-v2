@@ -5,7 +5,7 @@ const app = Vue.createApp({
     return {
       state: {},
       colors: [],
-      cardHidden: true,
+      cardHidden: true
     }
   },
   mounted() {
@@ -18,7 +18,6 @@ const app = Vue.createApp({
       this.cardHidden = !(state || {}).is_playing;
 
       if (state.item.id != ((this.state || {}).item || {}).id) {
-
         this.cardHidden = true;
         await this.sleep(300);
 
